@@ -2,10 +2,11 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(0, 128, 255, 0.5), rgba(0, 255, 0, 0.5), rgba(128, 0, 128, 0.5));
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.5), rgba(128, 0, 128, 0.5));
     background-size: 300% 300%;
     animation: backgroundAnimation 15s ease infinite;
     color: #333;
+    overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
 /* Container */
@@ -19,6 +20,7 @@ body {
     border: 2px solid #87CEFA; /* Light blue border */
     position: relative;
     overflow: hidden;
+    z-index: 2; /* Ensure it is above the floating elements */
 }
 
 /* Header */
@@ -77,7 +79,6 @@ input[type="number"]:focus, input[type="text"]:focus, select:focus {
 /* Floating Elements */
 .floating-element {
     position: absolute;
-    border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
     width: 50px;
     height: 50px;
@@ -85,17 +86,11 @@ input[type="number"]:focus, input[type="text"]:focus, select:focus {
     animation: float 10s ease-in-out infinite;
 }
 
-/* Square and Triangle Shapes */
-.square, .triangle {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
 /* Square Shape */
 .square {
     width: 50px;
     height: 50px;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Triangle Shape */
@@ -109,9 +104,11 @@ input[type="number"]:focus, input[type="text"]:focus, select:focus {
 
 /* Animation for Floating Elements */
 @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+    0% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-20px) translateX(20px); }
+    50% { transform: translateY(0) translateX(-20px); }
+    75% { transform: translateY(20px) translateX(20px); }
+    100% { transform: translateY(0) translateX(0); }
 }
 
 /* Floating Elements Positioning */
@@ -122,4 +119,5 @@ input[type="number"]:focus, input[type="text"]:focus, select:focus {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 1; /* Ensure it is below the container */
 }
