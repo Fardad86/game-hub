@@ -34,7 +34,9 @@ function displayGames(games) {
 
 function createFloatingElements() {
     const container = document.getElementById('floating-container');
-    for (let i = 0; i < 10; i++) {
+    const numberOfElements = 15; // Number of floating elements
+
+    for (let i = 0; i < numberOfElements; i++) {
         const elementType = Math.random() > 0.5 ? 'square' : 'triangle';
         const element = document.createElement('div');
         element.className = `floating-element ${elementType}`;
