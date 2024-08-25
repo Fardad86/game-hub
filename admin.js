@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://pyecsyykgzeionihrhwi.supabase.co';
-const supabaseKey = 'YOUR_SUPABASE_KEY';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5ZWNzeXlrZ3plaW9uaWhyaHdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ1MjIzNzMsImV4cCI6MjA0MDA5ODM3M30.oBNxX9Hl-89r_aCrzLJwbkdtdJB-e7rhOmhZd0q9RUc';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteGameForm = document.getElementById('delete-game-form');
     const updateGameSelect = document.getElementById('update-game-select');
     const deleteGameSelect = document.getElementById('delete-game-select');
-    const gameBoard = document.getElementById('game-board');
+    const gameList = document.getElementById('game-list');
 
     async function loadGames() {
         const { data, error } = await supabase
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading games:', error);
         } else {
             populateGameSelects(data);
-            updateGameBoard(data);
+            updateGameList(data);
         }
     }
 
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function updateGameBoard(games) {
-        gameBoard.innerHTML = '';
+    function updateGameList(games) {
+        gameList.innerHTML = '';
         games.forEach(game => {
             const gameDiv = document.createElement('div');
             gameDiv.textContent = `Name: ${game.name}, Link: ${game.link}, Position: ${game.position}`;
-            gameBoard.appendChild(gameDiv);
+            gameList.appendChild(gameDiv);
         });
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = document.getElementById('create-game-link').value;
         const position = parseInt(document.getElementById('create-game-position').value, 10);
 
-        const { error } = await supabase
+        const { data, error } = await supabase
             .from('games')
             .insert([{ name, link, position }]);
 
@@ -72,12 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGameForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const id = updateGameSelect.value;
+        const name = document.getElementById('update-game-name').value;
         const link = document.getElementById('update-game-link').value;
         const position = parseInt(document.getElementById('update-game-position').value, 10);
 
         const { error } = await supabase
             .from('games')
-            .update({ link, position })
+            .update({ name, link, position })
             .eq('id', id);
 
         if (error) {
