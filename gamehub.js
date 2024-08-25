@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         displayGames(games);
     }
-
-    // Create floating elements
-    createFloatingElements();
 });
 
 function displayGames(games) {
@@ -30,23 +27,4 @@ function displayGames(games) {
         button.onclick = () => window.location.href = game.link;
         gameButtons.appendChild(button);
     });
-}
-
-function createFloatingElements() {
-    const container = document.getElementById('floating-container');
-    const numberOfElements = 20; // Number of floating elements
-
-    for (let i = 0; i < numberOfElements; i++) {
-        const elementType = ['circle', 'square', 'triangle'][Math.floor(Math.random() * 3)];
-        const element = document.createElement('div');
-        element.className = `floating-element ${elementType}`;
-        element.style.left = `${Math.random() * 100}%`;
-        element.style.top = `${Math.random() * 100}%`;
-        element.style.width = `${Math.random() * 50 + 30}px`;
-        element.style.height = element.style.width;
-        element.style.animationDuration = `${Math.random() * 10 + 5}s`; // Random duration for floating effect
-        element.style.animationDelay = `${Math.random() * 10}s`; // Random delay
-
-        container.appendChild(element);
-    }
 }
