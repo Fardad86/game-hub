@@ -22,20 +22,42 @@ h2 {
     color: #1E90FF; /* Bright blue color */
 }
 
-/* Game Buttons */
-.game-button {
-    display: block;
+/* Button */
+button {
     background: #1E90FF; /* Bright blue background */
     color: white;
-    padding: 15px;
-    margin: 10px 0;
-    text-align: center;
+    border: none;
     border-radius: 5px;
-    text-decoration: none;
-    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
     transition: background 0.3s ease;
+    margin: 5px;
 }
 
-.game-button:hover {
+button:hover {
     background: #4682B4; /* Darker blue on hover */
+}
+
+/* Form */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #4682B4; /* Darker blue for labels */
+}
+
+input[type="number"], input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #87CEFA; /* Light blue border */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+    border-color: #1E90FF; /* Bright blue focus border */
 }
