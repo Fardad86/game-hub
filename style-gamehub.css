@@ -85,6 +85,29 @@ input[type="number"]:focus, input[type="text"]:focus, select:focus {
     animation: float 10s ease-in-out infinite;
 }
 
+/* Square and Triangle Shapes */
+.square, .triangle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Square Shape */
+.square {
+    width: 50px;
+    height: 50px;
+}
+
+/* Triangle Shape */
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animation for Floating Elements */
 @keyframes float {
     0% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
