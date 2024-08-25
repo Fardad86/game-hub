@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         displayGames(games);
     }
+
+    // Create floating elements
+    createFloatingElements();
 });
 
 function displayGames(games) {
@@ -27,4 +30,17 @@ function displayGames(games) {
         button.onclick = () => window.location.href = game.link;
         gameButtons.appendChild(button);
     });
+}
+
+function createFloatingElements() {
+    const container = document.getElementById('floating-container');
+    for (let i = 0; i < 10; i++) {
+        const element = document.createElement('div');
+        element.className = 'floating-element';
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.top = `${Math.random() * 100}%`;
+        element.style.width = `${Math.random() * 50 + 30}px`;
+        element.style.height = element.style.width;
+        container.appendChild(element);
+    }
 }
