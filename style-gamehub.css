@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(0, 255, 0, 0.7), rgba(128, 0, 128, 0.7));
+    background: linear-gradient(135deg, rgba(50, 205, 50, 0.7), rgba(138, 43, 226, 0.7)); /* Green to purple gradient */
     background-size: 300% 300%;
     animation: backgroundAnimation 15s ease infinite;
     color: #333;
@@ -44,29 +44,6 @@ button {
 button:hover {
     background: #FF4500; /* Darker red-orange on hover */
     transform: scale(1.1);
-}
-
-/* Form */
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #FF4500; /* Darker red-orange for labels */
-}
-
-input[type="number"], input[type="text"], select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #FF6347; /* Light coral border */
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-input[type="number"]:focus, input[type="text"]:focus, select:focus {
-    border-color: #FF4500; /* Darker red-orange focus border */
 }
 
 /* Animated Background */
