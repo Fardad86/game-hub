@@ -1,0 +1,41 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.5), rgba(144, 238, 144, 0.5));
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6); /* White background with 60% opacity */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #87CEFA; /* Light blue border */
+}
+
+/* Header */
+h2 {
+    color: #1E90FF; /* Bright blue color */
+}
+
+/* Game Buttons */
+.game-button {
+    display: block;
+    background: #1E90FF; /* Bright blue background */
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.game-button:hover {
+    background: #4682B4; /* Darker blue on hover */
+}
